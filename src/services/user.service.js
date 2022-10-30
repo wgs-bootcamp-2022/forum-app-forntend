@@ -1,40 +1,40 @@
-import http from "../http-common";
-import authHeader from "./auth-header";
+import axios from "axios";
+import authHeader from "./auth.header";
+
+const API_URL = "http://localhost:5000/";
 
 const getPublicContent = () => {
-  return http.get("/test");
+  return axios.get(API_URL + "all");
 };
-
-const uploadPicture = () => {
-  return http.post("/profile/image/add", {headers: authHeader()})
-}
 
 const getUserBoard = () => {
-  return http.get("/user", { headers: authHeader() });
+  return axios.get(API_URL + "user");
 };
 
-const getUserProfile = (id) => {
-  return http.get(`/profile/details/${id}`, { headers: authHeader() });
-};
-
-// const getImageByFilename= (filename) => {
-//   return http.get(`/profile/image/${filename}}`, { headers: authHeader() });
-// };
-
-const getSeperAdminBoard= () => {
-  return http.get("/mod", { headers: authHeader() });
+const getModeratorBoard = () => {
+  return axios.get(API_URL + "mod");
 };
 
 const getAdminBoard = () => {
-  return http.get("/admin", { headers: authHeader() });
+  return axios.get(API_URL + "admin");
 };
-
-export default {
+const getAllUserRole = () => {
+  return axios.get(API_URL + `user/roles/all`, { headers: authHeader() });
+};
+const updateUser = (userId) => {
+  return axios.put(API_URL+`update/user/${userId}`, { headers: authHeader() })
+}
+const countUser=() => {
+  return axios.get(`/user/count/total`);
+}
+const UserService = {
   getPublicContent,
   getUserBoard,
-  getSeperAdminBoard,
+  getModeratorBoard,
   getAdminBoard,
-  uploadPicture,
-  getUserProfile,
-  // getImageByFilename
-};
+  getAllUserRole,
+  countUser,
+  updateUser
+}
+
+export default UserService;

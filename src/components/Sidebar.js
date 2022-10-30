@@ -1,45 +1,510 @@
-import React from 'react';
-import {
-  CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
-  CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem,
-} from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+/** @format */
+
+// // /** @format */
+// // import { Routes, Route, Link, useLocation } from "react-router-dom";
+
+// // const Sidebar = () => {
+// //   return (
+// //     <aside class="w-64" aria-label="Sidebar">
+// //       <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+// //         <ul class="space-y-2">
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+// //                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+// //               </svg>
+// //               <span class="ml-3">Dashboard</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+// //               <span class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
+// //                 Pro
+// //               </span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
+// //                 <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+// //               <span class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">
+// //                 3
+// //               </span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">
+// //                 <Link
+// //                   to={"/admin"}
+// //                 //   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+// //                   >
+// //                   Admin Board
+// //                 </Link>
+// //               </span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+// //             </a>
+// //           </li>
+// //         </ul>
+// //         <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white dark:text-gray-400"
+// //                 focusable="false"
+// //                 data-prefix="fas"
+// //                 data-icon="gem"
+// //                 role="img"
+// //                 xmlns="http://www.w3.org/2000/svg"
+// //                 viewBox="0 0 512 512">
+// //                 <path
+// //                   fill="currentColor"
+// //                   d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9C247.3 478.2 251.6 480 256 480s8.653-1.828 11.67-5.062L510.6 224H1.365L244.3 474.9z"></path>
+// //               </svg>
+// //               <span class="ml-4">Upgrade to Pro</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="ml-3">Documentation</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+// //               </svg>
+// //               <span class="ml-3">Components</span>
+// //             </a>
+// //           </li>
+// //           <li>
+// //             <a
+// //               href="#"
+// //               class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+// //               <svg
+// //                 aria-hidden="true"
+// //                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+// //                 fill="currentColor"
+// //                 viewBox="0 0 20 20"
+// //                 xmlns="http://www.w3.org/2000/svg">
+// //                 <path
+// //                   fill-rule="evenodd"
+// //                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+// //                   clip-rule="evenodd"></path>
+// //               </svg>
+// //               <span class="ml-3">Help</span>
+// //             </a>
+// //           </li>
+// //         </ul>
+// //       </div>
+// //     </aside>
+// //   );
+// // };
+
+// // export default Sidebar;
+
+// import React from 'react'
+// import Logo from './Logo'
+
+// const Sidebar = () => {
+//   return (
+//       <aside className='w-64' aria-label='Sidebar'>
+//           <div className='py-4 px-3 bg-gray-50 rounded dark:bg-gray-800'>
+//               <Logo/>
+//               <ul className='space-y-2'>
+//                   <li>
+//                       <a
+//                           href='#'
+//                           className='flex flex-items p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
+//                       >
+//                           <svg
+//                               className='w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'
+//                               fill='currentColor'
+//                               viewBox='0 0 20 20'
+//                               xmlns='http://www.w3.org/2000/svg'
+//                           >
+//                               <path d='M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z'></path>
+//                               <path d='M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z'></path>
+//                           </svg>
+//                           <span className='ml-3'>Dashboard</span>
+//                       </a>
+//                   </li>
+
+//                   <li>
+//                       <a
+//                           href='#'
+//                           className='flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+//                       >
+//                           <svg
+//                               className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'
+//                               fill='currentColor'
+//                               viewBox='0 0 20 20'
+//                               xmlns='http://www.w3.org/2000/svg'
+//                           >
+//                               <path d='M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z'></path>
+//                           </svg>
+//                           <span className='flex-1 ml-3 whitespace-nowrap'>Analytics</span>
+//                           <span className='inline-flex font-medium text-sm rounded-full bg-gray-200 px-2 dark:bg-gray-600 dark:text-gray-100'>
+//                               Pro
+//                           </span>
+//                       </a>
+//                   </li>
+
+//               </ul>
+//           </div>
+//       </aside>
+//   )
+// }
+
+// export default Sidebar
+import React, { useState, useEffect, useCallback } from "react";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+// import React, { useState } from "react";
+// import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/auth";
+import { clearMessage } from "../actions/message";
+import { BsArrowLeftCircle } from "react-icons/bs";
+import { AiFillPieChart } from "react-icons/ai";
+import { SiFuturelearn } from "react-icons/si";
+import { SiOpenaccess } from "react-icons/si";
+import { CgProfile } from "react-icons/cg";
+
+// import Logo from '../assets/images/logo.svg'
 
 const Sidebar = () => {
-    return (
-      <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-        <CDBSidebar textColor="#fff" backgroundColor="#333">
-          <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-            <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-              Forum App
-            </a>
-          </CDBSidebarHeader>
-          <CDBSidebarContent>
-          <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="sticky-note">Components</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="credit-card" iconType="solid">
-              Metrics
-            </CDBSidebarMenuItem>
-          </CDBSidebarMenu>
-        </CDBSidebarContent>
-          <CDBSidebarFooter style={{ textAlign: 'center' }}>
-            <div
-              className="sidebar-btn-wrapper"
-              style={{
-                padding: '20px 5px',
-              }}
-            >
-              Chat Time
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const Menus = [
+    { title: "Dashboard", path: "/dashboard", src: <AiFillPieChart /> },
+    { title: "Course", path: "/course", src: <SiFuturelearn /> },
+    { title: "Profile", path: "/profile", src: <CgProfile /> },
+    { title: "Signin", path: "/login", src: <SiOpenaccess />, gap: "true" },
+  ];
+  const [showSuperAdminBoard, setShowSuperAdminBoard] = useState(false);
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [showUserBoard, setShowUserBoard] = useState(false);
+  const [showForumBoard, setShowForumBoard] = useState(false);
+
+  const { user: currentUser } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (["/login", "/register"].includes(location.pathname)) {
+      dispatch(clearMessage()); // clear message when changing location
+    }
+  }, [dispatch, location]);
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (currentUser) {
+      setShowSuperAdminBoard(currentUser.roles.includes("ROLE_SUPERADMIN"));
+      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
+      setShowUserBoard(currentUser.roles.includes("ROLE_USER"));
+      setShowForumBoard();
+    } else {
+      setShowSuperAdminBoard(false);
+      setShowAdminBoard(false);
+      setShowUserBoard(false);
+      setShowForumBoard(false);
+    }
+  }, [currentUser]);
+
+  return (
+    <>
+      <div
+        className={`${
+          open ? "w-60" : "w-fit"
+        } hidden sm:block relative h-screen duration-300 bg-gray-100 border-r border-gray-200 dark:border-gray-600 p-5 dark:bg-slate-800`}>
+        <BsArrowLeftCircle
+          className={`${
+            !open && "rotate-180"
+          } absolute text-3xl bg-white fill-slate-800  rounded-full cursor-pointer top-9 -right-4 dark:fill-gray-400 dark:bg-gray-800`}
+          onClick={() => setOpen(!open)}
+        />
+        <Link to="/">
+          <div className={`flex ${open && "gap-x-4"} items-center`}>
+            {/* <img src={Logo} alt='' className='pl-2' /> */}
+            {open && (
+              <span className="text-xl font-medium whitespace-nowrap dark:text-white">
+                Web Forum
+              </span>
+            )}
+          </div>
+        </Link>
+
+        {/* <ul className="pt-6">
+          {" "}
+          <Link to={"/"} className="nav-link  dark:text-white">
+            Dashboard
+          </Link>
+        </ul> */}
+        <ul className="pt-6">
+          <div>
+            <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+              <span className="text-4xl">
+                <AiFillPieChart />
+              </span>
+              <Link
+                to={"/forums"}
+                className={`${
+                  !open && "hidden"
+                } origin-left duration-300 hover:block`}>
+                Forum List
+              </Link>
+            </li>
+          </div>
+        </ul>
+        <ul className="pt-6">
+          {showAdminBoard && (
+            <div>
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={"/admin"}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Admin Board
+                </Link>
+              </li>
+              <br />
             </div>
-          </CDBSidebarFooter>
-        </CDBSidebar>
+          )}
+
+          {showSuperAdminBoard && (
+            <div>
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={"/superadmin"}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Super Admin Board
+                </Link>
+              </li>
+              <br />
+            </div>
+          )}
+          {showUserBoard && (
+            <div>
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={"/forums"}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Forums
+                </Link>
+              </li>
+              <br />
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={`/profile/details/${currentUser.id}`}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Profile
+                </Link>
+              </li>
+              <br />
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={`/forum/add`}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Create Room
+                </Link>
+              </li>
+              <br />
+            </div>
+          )}
+
+          {currentUser ? (
+            <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+              <span className="text-4xl">
+                <AiFillPieChart />
+              </span>
+              <Link
+                to={"/login"}
+                onClick={logOut}
+                className={`${
+                  !open && "hidden"
+                } origin-left duration-300 hover:block`}>
+                Log Out
+              </Link>
+            </li>
+          ) : (
+            <div>
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={"/login"}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Log In
+                </Link>
+              </li>
+              <br />
+              <li className="flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 bg-gray-200 dark:bg-gray-700">
+                <span className="text-4xl">
+                  <AiFillPieChart />
+                </span>
+                <Link
+                  to={"/register"}
+                  className={`${
+                    !open && "hidden"
+                  } origin-left duration-300 hover:block`}>
+                  Sign Up
+                </Link>
+              </li>
+            </div>
+          )}
+        </ul>
       </div>
-    );
-  };
+    </>
+  );
+};
 
 export default Sidebar;

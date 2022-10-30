@@ -1,8 +1,9 @@
-import http from "../http-common";
-import authHeader from "./auth-header";
+import axios from "axios";
+
+const API_URL = "http://localhost:5000/";
 
 const register = (username, email, password) => {
-  return http.post("signup", {
+  return axios.post(API_URL + "signup", {
     username,
     email,
     password,
@@ -10,13 +11,13 @@ const register = (username, email, password) => {
 };
 
 const login = (username, password) => {
-  return http
-    .post("/signin", {
+  return axios
+    .post(API_URL + "signin", {
       username,
       password,
     })
     .then((response) => {
-      if (response.data.accessToken) {
+      if (response.data.username) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
 
@@ -26,10 +27,20 @@ const login = (username, password) => {
 
 const logout = () => {
   localStorage.removeItem("user");
+  return axios.post(API_URL + "signout").then((response) => {
+    return response.data;
+  });
 };
 
-export default {
+const getCurrentUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
+
+const AuthService = {
   register,
   login,
   logout,
-};
+  getCurrentUser,
+}
+
+export default AuthService;
